@@ -75,7 +75,7 @@ def load_system():
         st.error(f"Файл {MODEL_PATH} не знайдено")
         return None, None, 0.035
 
-    checkpoint = torch.load(MODEL_PATH, map_location=device)
+    checkpoint = torch.load(MODEL_PATH, map_location=device, weights_only=False)
     model = Autoencoder().to(device)
 
     if isinstance(checkpoint, dict):
